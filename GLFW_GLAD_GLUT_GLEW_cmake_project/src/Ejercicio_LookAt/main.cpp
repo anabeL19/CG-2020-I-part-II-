@@ -551,11 +551,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     modelview = glm::rotate(modelview, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
 		glUniformMatrix4fv(modelviewPos, 1, GL_FALSE, &modelview[0][0]);
   }
-  if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
-    float angle = 0.1f;
-    modelview = glm::rotate(modelview, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
-		glUniformMatrix4fv(modelviewPos, 1, GL_FALSE, &modelview[0][0]);
-  }
   if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS){
     up = -1.0f;
     cameraUp    = glm::vec3(0.0f, up,  up);
@@ -586,7 +581,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		glUniformMatrix4fv(modelviewPos, 1, GL_FALSE, &modelview[0][0]);
     // std::cout<<"cameraPos: "<<cameraPos.x<<" "<<cameraPos.y<<" "<<cameraPos.z<<"\n";
   }
-  if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS){
+  if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS){
     eyeloc = 2.0f;		// Where do we look from
     up = 1.0f;	
 		if (eyeloc < 0)
@@ -720,6 +715,9 @@ void menu() {
     std::cout<<"    KEY L: Rotación lenta \n";
     std::cout<<"    KEY I: Invertir up \n";
     std::cout<<"    KEY R: Reset \n";
+    std::cout<<"    KEY 9: Rotación eje x \n";
+    std::cout<<"    KEY 8: Rotación eje y \n";
+    std::cout<<"    KEY 7: Rotación eje z \n";
 }
 int main(int argc, char** argv)
 {
